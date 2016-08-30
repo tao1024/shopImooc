@@ -13,18 +13,15 @@ $verify1 = $_SESSION['verify'];
 //echo $username.$password.$verify;
 if($verify == $verify1){
 	$sql="select * from imooc_admin where username='{$username}' and password='{$password}'";
-//	sqlæ ·æœ¬ï¼š$sql="select * from imooc_admin where username='king' and password='b2086154f101464aab3328ba7e060deb''";
 	$res = checkAdmin($sql);
 	var_dump($res);
 	if($res){
-		$_SESSION['adminName']=$row['username'];
-		header("location:index.php");
+		$_SESSION['adminName']=$res['username'];
+		alertMes("µÇÂ¼³É¹¦£¡","index.php");
 	}else{
-		echo "<script>alert('ç™»å½•å¤±è´¥');</script>";
-		echo "<script>window.location='login.php';</script>";
+		alertMes("µÇÂ¼Ê§°Ü£¡","login.php");
 	}
 }else{
-	echo "<script>alert('éªŒè¯ç é”™è¯¯');</script>";
-	echo "<script>window.location='login.php';</script>";
+	alertMes("ÑéÖ¤Âë´íÎó£¡","login.php");
 }
 ?>
