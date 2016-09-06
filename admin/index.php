@@ -7,7 +7,7 @@ checkLogined();
 <html>
 <head>
 <meta charset="utf-8">
-<title>-.-</title>
+<title>后台主页</title>
 <link rel="stylesheet" href="styles/backstage.css">
 </head>
 
@@ -20,9 +20,9 @@ checkLogined();
         <div class="link fr">
             <b>欢迎您
             <?php
-				if(isset($_SESSION['adminName'])){
+				if(isset($_SESSION['adminName'])){//isset()判断变量是否已配置。
 					echo $_SESSION['adminName'];
-				}elseif(isset($_COOKIE['adminName'])){
+				}else if(isset($_COOKIE['adminName'])){
 					echo $_COOKIE['adminName'];
 				}
             ?>

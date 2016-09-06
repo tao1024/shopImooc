@@ -62,7 +62,18 @@ function delete($table, $where = null) {
  *得到指定一条记录
  */
 function fetchOne($sql, $result_type = MYSQL_ASSOC) {
+	/*
+	 * mysql_query(sql,connection) 函数执行一条 MySQL 查询
+	 * sql:必需。规定要发送的 SQL 查询。注释：查询字符串不应以分号结束。
+	 * connection:可选。规定 SQL 连接标识符。如果未规定，则使用上一个打开的连接。
+	 */
 	$result = mysql_query($sql);
+	/*
+	 * mysql_fetch_array(data,array_type) 函数:
+	 * 从结果集中取得一行作为关联数组，或数字数组，或二者兼有。
+	 * 返回根据从结果集取得的行生成的数组，如果没有更多行则返回 false。
+	 * array_type: MYSQL_ASSOC - 关联数组;MYSQL_NUM - 数字数组;MYSQL_BOTH - 默认,同时产生关联和数字数组
+	 */
 	$row = mysql_fetch_array($result, $result_type);
 	return $row;
 }

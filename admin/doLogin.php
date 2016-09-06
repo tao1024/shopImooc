@@ -12,16 +12,16 @@ $verify1 = $_SESSION['verify'];
 
 //echo $username.$password.$verify;
 if($verify == $verify1){
-	$sql="select * from imooc_admin where username='{$username}' and password='{$password}'";
+	$sql="select * from imooc_admin where username='{$username}' and password='{$password}'";//sqlè¯­å¥ä¸è¦ä»¥åˆ†å·ç»“å°¾ï¼Œ
 	$res = checkAdmin($sql);
-	var_dump($res);
+//	var_dump($res);
 	if($res){
 		$_SESSION['adminName']=$res['username'];
-		alertMes("µÇÂ¼³É¹¦£¡","index.php");
+		alertMes("ç™»å½•æˆåŠŸ","index.php");
 	}else{
-		alertMes("µÇÂ¼Ê§°Ü£¡","login.php");
+		alertMes("ç™»å½•å¤±è´¥","login.php");
 	}
 }else{
-	alertMes("ÑéÖ¤Âë´íÎó£¡","login.php");
+	alertMes("éªŒè¯ç é”™è¯¯","login.php");
 }
 ?>

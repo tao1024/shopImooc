@@ -15,4 +15,17 @@ function checkLogined(){
 		alertMes("请先登陆","login.php");
 	}
 }
+/**
+ * 注销
+ */
+ function logout(){
+	session_start();//此行代码不能省略
+ 	$_SESSION = array();
+ 	if(isset($_COOKIE[session_name])){
+ 		setcookie(session_name(),"",time()-1);
+ 	}
+ 	session_destroy();
+ 	header("location:login.php");
+ }
+
 ?>
