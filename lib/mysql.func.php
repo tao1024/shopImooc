@@ -40,7 +40,7 @@ function update($table, $array, $where = null) {
 	$sql = "update {$table} set {$str} " . ($where == null ? null : " where " . $where);
 	$result = mysql_query($sql);
 	if ($result) {
-		return mysql_affected_rows();
+		return 		mysql_affected_rows		();
 	} else {
 		return false;
 	}
