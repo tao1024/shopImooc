@@ -1,7 +1,7 @@
 <?php
-require_once '../core/admin.inc.php';
-session_start();
-checkLogined();
+	require_once '../core/admin.inc.php';
+	session_start();
+	checkLogined();
 ?>
 <!doctype html>
 <html>
@@ -34,108 +34,10 @@ checkLogined();
         <div class="main">
             <!--右侧内容-->
             <div class="cont">
-                <div class="title">产品管理</div>
-                <div class="details">
-                    <div class="details_operation clearfix">
-                        <div class="bui_select">
-                            <input type="button" value="添&nbsp;&nbsp;加" class="add">
-                        </div>
-                        <div class="fr">
-                            <div class="text">
-                                <span>商品名称：</span>
-                                <div class="bui_select">
-                                    <select name="" id="" class="select">
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <span>上架时间：</span>
-                                <div class="bui_select">
-                                    <select name="" id="" class="select">
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                        <option value="1">测试内容</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <span>搜索</span>
-                                <input type="text" value="" class="search">
-                            </div>
-                        </div>
-                    </div>
-                    <!--表格-->
-                    <table class="table" cellspacing="0" cellpadding="0">
-                        <thead>
-                            <tr>
-                                <th width="15%">编号</th>
-                                <th width="25%">标题</th>
-                                <th width="35%">来源</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <!--这里的id和for里面的c1 需要循环出来-->
-                                <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c2" class="check"><label for="c2" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c3" class="check"><label for="c3" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c4" class="check"><label for="c4" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c5" class="check"><label for="c5" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c6" class="check"><label for="c6" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c7" class="check"><label for="c7" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c8" class="check"><label for="c8" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="c9" class="check"><label for="c9" class="label">001</label></td>
-                                <td>后台设计</td>
-                                <td>测试内容</td>
-                                <td align="center"><input type="button" value="修改" class="btn"><input type="button" value="删除" class="btn"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <div class="title">后台管理</div>
+      	 		<!-- 嵌套网页开始 -->
+                <iframe src="main.php"  frameborder="0" name="mainFrame" width="100%" height="522"></iframe>
+                <!-- 嵌套网页结束 -->
             </div>
         </div>
         <!--左侧列表-->
@@ -144,19 +46,46 @@ checkLogined();
                 <div class="title">管理员</div>
                 <ul class="mList">
                     <li>
-                        <h3><span>-</span>商品管理</h3>
-                        <dl>
-                            <dd><a href="#">商品修改</a></dd>
-                            <dd><a href="#">商品分类</a></dd>
+                        <h3><span onclick="show('menu1','change1')" id="change1">+</span>商品管理</h3>
+                        <dl id="menu1" style="display:none;">
+                            <dd><a href="#">添加商品</a></dd>
+                            <dd><a href="#">商品列表</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <h3><span>+</span>订单管理</h3>
-                        <dl>
+                        <h3><span onclick="show('menu2','change2')" id="change2">+</span>分类管理</h3>
+                        <dl id="menu2" style="display:none;">
+                            <dd><a href="#">添加分类</a></dd>
+                            <dd><a href="#">分类列表</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <h3><span onclick="show('menu3','change3')" id="change3">+</span>订单管理</h3>
+                        <dl id="menu3" style="display:none;">
                             <dd><a href="#">订单修改</a></dd>
                             <dd><a href="#">订单又修改</a></dd>
                             <dd><a href="#">订单总是修改</a></dd>
                             <dd><a href="#">测试内容你看着改</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <h3><span onclick="show('menu4','change4')" id="change4">+</span>用户管理</h3>
+                        <dl id="menu4" style="display:none;">
+                            <dd><a href="#">添加用户</a></dd>
+                            <dd><a href="#">用户列表</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <h3><span onclick="show('menu5','change5')" id="change5">+</span>管理员管理</h3>
+                        <dl id="menu5" style="display:none;">
+                            <dd><a href="addAdmin.php" target="mainFrame">添加管理员</a></dd>
+                            <dd><a href="listAdmin.php" target="mainFrame">管理员列表</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <h3><span onclick="show('menu6','change6')" id="change6">+</span>商品图片管理</h3>
+                        <dl id="menu6" style="display:none;">
+                            <dd><a href="#">商品图片列表</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -164,5 +93,21 @@ checkLogined();
         </div>
 
     </div>
+    <script type="text/javascript">
+    	function show(num,change){
+	    		var menu=document.getElementById(num);
+	    		var change=document.getElementById(change);
+	    		if(change.innerHTML=="+"){
+	    				change.innerHTML="-";
+	        	}else{
+						change.innerHTML="+";
+	            }
+    		   if(menu.style.display=='none'){
+    	             menu.style.display='';
+    		    }else{
+    		         menu.style.display='none';
+    		    }
+        }
+    </script>
 </body>
 </html>

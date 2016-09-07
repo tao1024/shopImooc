@@ -19,7 +19,7 @@ function insert($table, $array) {
 	$vals = "'" . join("','", array_values($array)) . "'";
 	$sql = "insert {$table}($keys) values({$vals})";
 	mysql_query($sql);
-	return mysql_insert_id();
+	return mysql_insert_id();//mysql_insert_id() 函数返回上一步 INSERT 操作产生的 ID。如果上一查询没有产生 AUTO_INCREMENT 的 ID，则 mysql_insert_id() 返回 0。
 }
 // 比如：insert("dd",array('a','b','c'));---->打印出$sql：insert dd(0,1,2) values('a','b','c')
 //sql样本：
@@ -29,6 +29,7 @@ function insert($table, $array) {
  * 记录的更新操作
  */
 function update($table, $array, $where = null) {
+	$str = null;
 	foreach ($array as $key => $val) {
 		if ($str == null) {
 			$sep = "";
@@ -40,7 +41,7 @@ function update($table, $array, $where = null) {
 	$sql = "update {$table} set {$str} " . ($where == null ? null : " where " . $where);
 	$result = mysql_query($sql);
 	if ($result) {
-		return 		mysql_affected_rows		();
+		return mysql_affected_rows();//mysql_affected_rows() 函数返回前一次 MySQL 操作所影响的记录行数
 	} else {
 		return false;
 	}
