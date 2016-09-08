@@ -2,8 +2,18 @@
 header("Content-type: text/html; charset=utf-8");
 require_once '../core/admin.inc.php';
 require_once '../lib/common.php';
+require_once '../lib/page.func.php';
 connect();//勿丢
-$rows = getAllAdmin();
+
+$pageSize=2;
+if(isset($_REQUEST['page'])){
+	$page=$_REQUEST['page'];
+}else{
+	$page = 1;
+}
+//$page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
+$rows=getAdminByPage($page,$pageSize);
+
 if(!$rows){
 	alertMes("sorry,没有管理员，请添加！","addAdmin.php");
 	exit;
@@ -29,8 +39,9 @@ if(!$rows){
                     <table class="table" cellspacing="0" cellpadding="0">
                         <thead>
                             <tr>
-                                <th width="15%">编号</th>
-                                <th width="25%">管理员名称</th>
+                                <th width="10%">序号</th>
+                                <th width="10%">ID</th>
+                                <th width="20%">管理员名称</th>
                                 <th width="30%">管理员邮箱</th>
                                 <th>操作</th>
                             </tr>
@@ -40,11 +51,17 @@ if(!$rows){
                             <tr>
                                 <!--这里的id和for里面的c1 需要循环出来-->
                                 <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label"><?php echo $i ?></label></td>
+                                <td><?php echo $row['id'] ?></td>
                                 <td><?php echo $row['username'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin(<?php echo $row['id']; ?>)"><input type="button" value="删除" class="btn"  onclick="delAdmin(<?php echo $row['id']; ?>)"></td>
                             </tr>
                             <?php $i++; endforeach;?>
+                            <?php if($totalRows>$pageSize):?>
+                            <tr>
+                            	<td colspan="4"><?php echo showPage($page, $totalPage);?></td>
+                            </tr>
+                            <?php endif;?>
                         </tbody>
                     </table>
                 </div>
